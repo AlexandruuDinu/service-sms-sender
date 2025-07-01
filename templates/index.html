@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ITP Reminder</title>
+    <style>
+        body { font-family: Arial; padding: 30px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
+    </style>
+</head>
+<body>
+    <h1>Adauga client nou</h1>
+    <form method="POST">
+        <input name="license_plate" placeholder="Numar de inmatriculare" required>
+        <input name="phone" placeholder="Telefon" required>
+        <input name="brand" placeholder="Marca" required>
+        <input name="model" placeholder="Model" required>
+        <input name="expiry_date" type="date" required>
+        <button type="submit">Adauga</button>
+    </form>
+
+    <h2>Clienti existenti</h2>
+    <table>
+        <tr>
+            <th>Numar de inmatriculare</th>
+            <th>Telefon</th>
+            <th>Marca</th>
+            <th>Model</th>
+            <th>Data de expirare</th>
+            <th>Actiuni</th>
+        </tr>
+        {% for c in clients %}
+        <tr>
+            <td>{{ c[1] }}</td>
+            <td>{{ c[2] }}</td>
+            <td>{{ c[3] }}</td>
+            <td>{{ c[4] }}</td>
+            <td>{{ c[5] }}</td>
+            <td>
+                <a href="/edit/{{ c[0] }}">Edit</a> |
+                <a href="/delete/{{ c[0] }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

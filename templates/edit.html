@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editeaza client</title>
+    <style>
+        body { font-family: Arial; padding: 30px; }
+    </style>
+</head>
+<body>
+    <h1>Editeaza clientul {{ client[1] }}</h1>
+    <form method="POST">
+        <input name="license_plate" value="{{ client[1] }}" required>
+        <input name="phone" value="{{ client[2] }}" required>
+        <input name="brand" value="{{ client[3] }}" required>
+        <input name="model" value="{{ client[4] }}" required>
+        <input name="expiry_date" type="date" value="{{ client[5] }}" required>
+        <button type="submit">Salveaza</button>
+    </form>
+    <br>
+    <a href="/">Inapoi</a>
+</body>
+</html>
